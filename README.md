@@ -14,13 +14,11 @@ def train(self, num_iteration=150):
         data (numpy.ndarray): 训练数据集
         labels (numpy.ndarray): 训练标签
         num_iteration (int): 迭代次数
-    Returns
-        weights (numpy.ndarray): logistic模型权重
     """
     for j in xrange(num_iteration):
         data_index = range(self.data_num)
         for i in xrange(self.data_num):
-            # 动态学习速率
+            # 学习速率
             alpha = 0.01
             rand_index = int(random.uniform(0, len(data_index)))
             error = self.label[rand_index] - sigmoid(sum(self.data[rand_index] * self.weights + self.b))
